@@ -107,7 +107,7 @@ roi <- ee$Geometry$Polygon(
   )),
   proj = "EPSG:4326",
   geodesic = FALSE
-)
+) #you can also use a .shp file
 
 
 # ---- monthly sequence ----
