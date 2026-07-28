@@ -96,7 +96,13 @@ end_date   <- "2024-07-24"
 
 
 # ---- region of interest ----
-
+# Define your own region of interest (ROI).
+#
+# The coordinates below are an example study area.
+# Replace them with the coordinates of your own study area.
+#
+# Coordinates must be provided as:
+# c(longitude, latitude)
 roi <- ee$Geometry$Polygon(
   coords = list(list(
     c(-78.76182660459017, -0.627800446223119),
