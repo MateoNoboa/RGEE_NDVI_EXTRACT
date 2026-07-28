@@ -114,3 +114,8 @@ The workflow also consulted the following repository:
 
 > Ricardo Dal'Agnol da Silva. *DL_RS_GEE: Deep Learning with Remote Sensing imagery from Google Earth Engine with R language.*
 > GitHub: https://github.com/ricds/DL_RS_GEE
+>
+> ## AI assistance
+
+**ChatGPT (OpenAI)** was used as a coding copilot during the development of this workflow, mainly to assist with the structure and implementation of the iterative loops used for NDVI extraction and processing. The code was reviewed, adapted, and tested for the specific datasets and workflow used in this project.
+
