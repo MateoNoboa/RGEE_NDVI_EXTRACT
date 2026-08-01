@@ -5,6 +5,15 @@ This repository contains the R scripts used to extract Sentinel-2 NDVI values fr
 The workflow was developed using GPS data from three individuals: **Mashca, Diego and Sucre**.
 
 The satellite data are acquired through **Google Earth Engine (GEE)** using Sentinel-2 Surface Reflectance imagery.
+## Workflow
+
+The workflow consists of three sequential scripts that process wildlife GPS tracking data and Sentinel-2 imagery to generate a consolidated NDVI database.
+
+| Step | Input | Script | Output |
+|------|-------|--------|--------|
+| **1** | Region of Interest (ROI) and Sentinel-2 Surface Reflectance imagery (Google Earth Engine) | `01_rgee-setup-and-ndvi-export.R` | Monthly NDVI GeoTIFF files (`NDVI_YYYY-MM.tif`) exported to Google Drive |
+| **2** | Movebank GPS tracking CSV files and monthly NDVI GeoTIFF files | `02_spatial-ndvi-extraction.R` | Individual datasets with extracted NDVI values (`mashca_ndvi.csv`, `Diego_ndvi.csv`, `Sucre_ndvi.csv`) |
+| **3** | Individual NDVI datasets (`*_ndvi.csv`) | `03_database-consolidation-and-matching.R` | Final consolidated database (`Zorros_NDVI.csv`) |
 ## Input and output data
 
 ### Input data
@@ -23,7 +32,7 @@ The workflow expects the original Movebank export to contain, at minimum, the fo
 
 Additional columns exported by Movebank (e.g., GPS quality metrics, study information, or sensor metadata) are preserved but are not required for the NDVI extraction process.
 
-### Intermediate output
+###  output data
 
 The second script generates one CSV for each individual (e.g., `mashca_ndvi.csv`). These files contain the original Movebank data together with one additional column for each monthly Sentinel-2 NDVI value.
 
