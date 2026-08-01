@@ -20,7 +20,7 @@ The workflow consists of three sequential scripts that process wildlife GPS trac
 
 The GPS tracking data used in this workflow were exported from **Movebank** as CSV files, with one file per monitored individual (e.g., `mashca_points.csv`, `diego_points.csv`, `sucre_points.csv`).
 
-The workflow expects the original Movebank export to contain, at minimum, the following fields:
+The workflow expects each Movebank CSV to contain at least the following fields:
 
 | Column                        | Description                     |
 | ----------------------------- | ------------------------------- |
@@ -32,7 +32,7 @@ The workflow expects the original Movebank export to contain, at minimum, the fo
 
 Additional columns exported by Movebank (e.g., GPS quality metrics, study information, or sensor metadata) are preserved but are not required for the NDVI extraction process.
 
-###  output data
+###  Output data
 
 The second script generates one CSV for each individual (e.g., `mashca_ndvi.csv`). These files contain the original Movebank data together with one additional column for each monthly Sentinel-2 NDVI value.
 
@@ -50,7 +50,7 @@ The third script produces a single consolidated dataset (`Zorros_NDVI.csv`) cont
 | `ndvi_value`                  | Extracted NDVI value             |
 
 
-## Codes in R language
+##  R Scripts
 
 ### 1) Sentinel-2 NDVI data acquisition from Google Earth Engine
 
