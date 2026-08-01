@@ -8,6 +8,29 @@ The satellite data are acquired through **Google Earth Engine (GEE)** using Sent
 ## Workflow
 
 The workflow consists of three sequential scripts that process wildlife GPS tracking data and Sentinel-2 imagery to generate a consolidated NDVI database.
+```text
+Movebank GPS tracking data (.csv)
+                │
+                ▼
+01_rgee-setup-and-ndvi-export.R
+                │
+                ▼
+Monthly Sentinel-2 NDVI GeoTIFF (.tif)
+                │
+                ▼
+02_spatial-ndvi-extraction.R
+                │
+                ▼
+mashca_ndvi.csv
+Diego_ndvi.csv
+Sucre_ndvi.csv
+                │
+                ▼
+03_database-consolidation-and-matching.R
+                │
+                ▼
+Zorros_NDVI.csv
+```
 
 | Step | Input | Script | Output |
 |------|-------|--------|--------|
@@ -34,7 +57,7 @@ Additional columns exported by Movebank (e.g., GPS quality metrics, study inform
 
 ###  Output data
 
-The second script generates one CSV for each individual (e.g., `mashca_ndvi.csv`). These files contain the original Movebank data together with one additional column for each monthly Sentinel-2 NDVI value.
+The second script generates one CSV for each individual (e.g., `mashca_ndvi.csv`). These files contain the original Movebank data together with one additional column for each monthly Sentinel-2 NDVI composite value.
 
 
 The third script produces a single consolidated dataset (`Zorros_NDVI.csv`) containing the NDVI value that matches the month of each GPS record.
@@ -117,7 +140,7 @@ Sucre_ndvi.csv
 
 `03_database-consolidation-and-matching.R`
 
-This script combines the NDVI extraction results from the three individuals and matches the tracking records with the corresponding satellite acquisition period.
+This script combines the NDVI extraction results from the three individuals and matches each GPS record with the corresponding monthly Sentinel-2 NDVI composite value.
 
 The extracted data are transformed into a long format and then combined into a single database.
 
